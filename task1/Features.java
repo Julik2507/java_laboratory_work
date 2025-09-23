@@ -51,7 +51,6 @@ public class Features {
             }
         }
         System.out.println();
-                System.out.println();
 
     }
 }
