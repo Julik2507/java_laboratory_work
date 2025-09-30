@@ -1,23 +1,21 @@
 public class Employee {
 
-    String name, lastName;
-    double salary;
+    private String name, lastName;
+    private double salary;
 
-    Employee(String name, String lastName, double salary) {
+    public Employee(String name, String lastName, double salary) {
         this.name = name;
         this.lastName = lastName;
-        if(salary >= 0.0) {
-            this.salary = salary;
-        }
+        if(salary > 0.0) this.salary = salary;
     }
 
-    String getName() {return this.name;}
-    String getLastName() {return this.lastName;}
-    double getSalary() {return this.salary;}
+    public String getName() {return this.name;}
+    public String getLastName() {return this.lastName;}
+    public double getSalary() {return this.salary;}
 
-    void setName(String name) {this.name = name;}
-    void setLastName(String lastName) {this.lastName = lastName;}
-    void setSalary(double salary) {
-        if(salary >= 0.0) this.salary = salary;
+    public void setName(String name) {this.name = name;}
+    public void setLastName(String lastName) {this.lastName = lastName;}
+    public void setSalary(double salary) {
+        if(salary > 0.0) this.salary = salary;
     }
 }

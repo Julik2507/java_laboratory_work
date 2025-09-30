@@ -2,12 +2,18 @@ public class DateTest {
 
     public static void main(String[] args) {
         
-        Date myDate = new Date(9, 24, 2026);
-        myDate.displayDate();
+        Date myCorrectDate = new Date(2, 28, 2000);
+        myCorrectDate.displayDate();
+        myCorrectDate.setYear(1999);
+        myCorrectDate.displayDate();
 
-        myDate.setYear(1999);
-        myDate.displayDate();
+        Date myWrongDate = new Date(2, 29, 2000);
+        myWrongDate.displayDate();
+        myWrongDate.setYear(1999);
+        myWrongDate.displayDate();
 
     }
-
 }
+
+//валидировать даты
+//добавить для аттрибутов private, для конструктора и методов - public

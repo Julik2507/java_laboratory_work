@@ -1,53 +1,51 @@
 public class Invoice {
 
-    String detailNumber, detailDesc;
-    int thingsQuantity;
-    double thingPrice, summ;
+    private String detailNumber, detailDesc;
+    private int thingsQuantity;
+    private double thingPrice, summ;
 
 
-    Invoice(String detailNumber, String detailDesc, int thingsQuantity, double thingPrice) {
+    public Invoice(String detailNumber, String detailDesc, int thingsQuantity, double thingPrice) {
         this.detailNumber = detailNumber;
         this.detailDesc = detailDesc;
-        this.thingsQuantity = thingsQuantity;
-        this.thingPrice = thingPrice;
-
-        if(thingsQuantity < 0) this.thingsQuantity = 0;
-        if(thingPrice < 0.0) this.thingPrice = 0.0;
+        if(thingsQuantity > 0) this.thingsQuantity = thingsQuantity;
+        if(thingPrice > 0.0) this.thingPrice = thingPrice; 
     }
 
-    double getInvoiceAmount() {
+    public double getInvoiceAmount() {
         return summ = this.thingsQuantity * this.thingPrice;
     }
 
-    void setDetailNumber(String detailNumber) {
+    public void setDetailNumber(String detailNumber) {
         this.detailNumber = detailNumber;
     }
 
-    void setDetailDesc(String detailDesc) {
+    public void setDetailDesc(String detailDesc) {
         this.detailDesc = detailDesc;
     }
 
-    void setThingsQuantity(int thingsQuantity) {
-        this.thingsQuantity = thingsQuantity;
+    public void setThingsQuantity(int thingsQuantity) {
+        if(thingsQuantity > 0) this.thingsQuantity = thingsQuantity;
     }
 
-    void setThingPrice(double thingPrice) {
-        this.thingPrice = thingPrice;
+    public void setThingPrice(double thingPrice) {
+        if(thingPrice > 0.0) this.thingPrice = thingPrice;
     }
 
-    String getDetailNumber() {
+    public String getDetailNumber() {
         return this.detailNumber;
     }
 
-    String getDetailDesc() {
+    public String getDetailDesc() {
         return this.detailDesc;
     }
 
-    int getThingsQuantity() {
+    public int getThingsQuantity() {
         return this.thingsQuantity;
     }
 
-    double getThingPrice() {
+    public double getThingPrice() {
         return this.thingPrice;
     }
 }
+
