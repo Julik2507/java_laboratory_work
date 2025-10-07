@@ -42,13 +42,13 @@ public class RetailCalculator {
                 status = false;
                 break;
             }
-            // System.out.printf("%f and %d", price, quantityOfProduct);
-            total = price * quantityOfProduct;
+
+            total += price * quantityOfProduct;
 
             System.out.printf("Итоговая стоимость: %.2f $\n", total);
 
         }
-        System.out.printf("Итоговая стоимость: %.2f $\n", total);
+        System.out.printf("\nИтоговая стоимость: %.2f $\n", total);
 
     }
 }
