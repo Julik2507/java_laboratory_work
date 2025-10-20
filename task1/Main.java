@@ -5,6 +5,7 @@ public class Main {
 
     public static void main(String[] args) {
 
+        String answer;
         boolean status = true;
         int startBound = 1;
         int finishBound = 1000;
@@ -25,7 +26,11 @@ public class Main {
                 System.out.println("Загаданное число меньше!");
             } else if(value == secretValue) {
                 System.out.println("Поздравляю! Вы угадали число!"); 
-                status=false;
+                
+                System.out.println("Хотите продолжить игру? да / нет");
+                myScanner.nextLine();
+                answer = myScanner.nextLine();
+                if(answer.equals("нет")) status = false; 
             }
         }
 
