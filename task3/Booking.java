@@ -49,8 +49,9 @@ public class Booking {
                 pickBusiness();
                 counter = 0;
             } else if(counter == 5) {
+
                 System.out.println("В бизнесе мест нет, хотите эконом? да / нет");
-                // myScanner.nextLine();
+
                 answer = myScanner.nextLine();
                 if(answer.equals("нет")) return false;
 
@@ -65,10 +66,14 @@ public class Booking {
                 pickEconomy();
                 counter = 0;
             } else if(counter == 5) {
+
                 System.out.println("В экономе мест нет, хотите эконом? да / нет");
-                // myScanner.nextLine();
+
                 answer = myScanner.nextLine();
-                if(answer.equals("нет")) return false;
+                if(answer.equals("нет")) {
+                    System.out.println("Следующий рейс отправляется через 3 часа!");
+                    return false;
+                }
 
                 pickBusiness();
             }
@@ -77,25 +82,39 @@ public class Booking {
     }
 
     public static void pickBusiness() {
-                //  System.out.println("tesssssssssssst");
+        boolean booked = false;
+
         for(int i=0; i<5; i++) {
             if(seats[i] == false) {
                 seats[i] = true;
+                booked = true;
                 break;
             }
         }
-        System.out.println("Оформление бизнес-класса прошло успешно!");
+
+        if(booked) {
+            System.out.println("Оформление бизнес-класса прошло успешно!");
+        } else {
+            System.out.println("Нет доступных мест! выберите другую дату!");
+        }
     }
 
     public static void pickEconomy() {
+        boolean booked = false;
+
         for(int i=5; i<10; i++) {
             if(seats[i] == false) {
                 seats[i] = true;
+                booked = true;
                 break;
             }
         }
-        System.out.println("Оформление эконом-класса прошло успешно!");
 
+        if(booked) {
+            System.out.println("Оформление бизнес-класса прошло успешно!");
+        } else {
+            System.out.println("Нет доступных мест! выберите другую дату!");
+        }
     }
 
 }
