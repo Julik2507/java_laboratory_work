@@ -11,6 +11,9 @@ public class Rational {
 
     public Rational(int numerator, int denumerator) {
  
+        if(!validateDenumerator(denumerator)) {
+            throw new ArithmeticException("На 0 делить нельзя!");
+        }
         DtoRational obj = makeShort(numerator, denumerator); ///////////CHECK!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         
         this.numerator = obj.numerator();
@@ -26,6 +29,9 @@ public class Rational {
         this.denumerator = obj.denumerator();        
     }
 
+    public boolean validateDenumerator(int denumerator) {
+        return denumerator == 0;
+    }
 
     public static DtoRational makeShort(int a, int b) {
         int numerator = a;
@@ -79,7 +85,13 @@ public class Rational {
     }
 
     public double toDouble() {
-        return (double)this.numerator / this.denumerator;
+        
+        if(this.denumerator == 0) {
+            return 0.0;            
+        } else {
+            return (double)this.numerator / this.denumerator;
+        }
+
     }    
 
     public int getNumerator() {return this.numerator;}
