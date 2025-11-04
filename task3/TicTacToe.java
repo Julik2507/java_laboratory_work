@@ -23,9 +23,10 @@ public class TicTacToe {
     }
 
     public void playGame() {
-        int cell, i, j;
+        int cell, i, j, counter;
         States symbol;
         while(true) {
+            counter+=1;
             System.out.println("Какой игрок ходит первым? 1 или 2. Для выхода 0");
             int player = myScanner.nextInt();
             int firstPlayer = player;
@@ -53,6 +54,11 @@ public class TicTacToe {
                 }
 
                 player = player==1 ? 2: 1;
+
+                if(counter==9) {
+                    System.out.println("Ничья!");
+                    break
+                }
             }
 
             break;
