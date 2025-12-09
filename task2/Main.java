@@ -1,34 +1,31 @@
-import java.util.ArrayList;
-
 public class Main {
     public static void main(String[] args) {
 
-        ArrayList<CarbonFootprint> things = new ArrayList<CarbonFootprint>();
+        Storage<User> userStorage = new Storage<>();
 
-        Building myBuilding = new Building(12312.123, 32534.2);
-        Car myCar = new Car(124.1);
-        Airplane myAirplane = new Airplane(9234283.2, 23949234.5, 8124.76);
+        userStorage.add(new User("Alice", 20));
+        userStorage.add(new User("Bob", 15));
+        userStorage.add(new User("Charlie", 30));
+
+        System.out.println(userStorage.getAll());
+        System.out.println(userStorage.filter(u -> u.getAge() > 18));
+        System.out.println(userStorage.find(u -> u.getName().equals("Charlie")));
+        System.out.println(userStorage.sort(Comparator.comparingInt(u -> u.getAge())));
 
 
-        things.add(myBuilding);
-        things.add(myCar);
-        things.add(myAirplane);
+        Storage<Product> productStorage = new Storage<>();
 
-        for(int i=0; i<3; i++) {
-            System.out.println(things.get(i).getCarbonFootprint());
-        }
-        System.out.println('\n');
+        productStorage.add(new Product("Bread", 15));
+        productStorage.add(new Product("Phone", 500));
+        productStorage.add(new Product("Milk", 12));
+        productStorage.add(new Product("Book", 25));
 
-        for(int i=0; i<3; i++) {
-            if(things.get(i) instanceof Building) {
-                System.out.println(((Building) things.get(i)).getAddress());
-            } else if(things.get(i) instanceof Car) {
-                System.out.println(((Car) things.get(i)).getManufacturer());
-            } else if(things.get(i) instanceof Airplane) {
-                System.out.println(((Airplane) things.get(i)).getManufacturer());
-            }
-        }
-        // Building el1 = things.get(0); 
-        // System.out.println(el1.address);
+        System.out.println(productStorage.getAll());
+        System.out.println(productStorage.filter(p -> p.price < 20));
+        System.out.println(productStorage.sort(Comparator.comparingDouble(p -> p.price)));
+
+        boolean removed = productStorage.remove(p -> p.price > 100);
+        System.out.println("Удалено: " + removed);
+        System.out.println(productStorage.getAll());
     }
-}   
+}
